@@ -1,7 +1,7 @@
 # Dynamic Web Development
 
-- Academiejaar: 
-- Opleiding: 
-- Klasgroep: 
-- Naam: 
+- Academiejaar: 2022-2023
+- Opleiding: Toegepaste Informatica
+- Klasgroep: 5-6
+- Naam: Ruben Brichau
 
