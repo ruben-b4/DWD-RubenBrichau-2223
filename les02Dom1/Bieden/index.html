@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;1,100;1,300;1,400&display=swap"
+      rel="stylesheet">
+    <title>Bieden</title>
+</head>
+<body>
+    <main>
+        <h1>Prachtige vaas! Doe een bod</h1>
+        <section id="all">
+        <img src="img/vaas.png" alt="">
+        <form id="frmBieden">
+            <div class="ctrlbieder">
+               <label for="naam">Naam Bieder: </label>
+               <input type="text" id="naam" required>
+               <span class="message"></span>
+            </div>
+            <div class="ctrlBod">
+               <label for="Bod">Bod: </label>
+               <input type="text" id="Bod" required>
+               <span class="message"></span>
+            </div>
+            <button type="submit">plaats bod</button>
+            <div class="msgBod">er is nog geen bod uitgebracht</div>
+         </form>
+        </section>
+    </main>
+    <script src="js/scripts.js"></script>
+</body>
+</html>
