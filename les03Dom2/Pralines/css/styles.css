@@ -1,0 +1,38 @@
+#grid img {
+    max-width: 100%;
+ }
+
+#grid.viewGrid {
+    display: flex;
+    flex-flow: row wrap;
+    margin: 0 auto;
+  
+}
+
+#grid.viewGrid figure {
+    margin-right: 2%;
+    width: 10%;
+}
+
+.eigenschappen {
+    list-style: none;
+}
+
+li {
+    margin-top: 1%;
+}
+
+li.inpEig {
+    margin-left: 3%;
+    margin-top: 0;
+}
+
+.eig {
+    font-weight: bold;
+}
+
+.active {
+    filter:brightness(95%);
+}
+
+ 
