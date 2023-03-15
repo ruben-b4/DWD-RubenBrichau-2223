@@ -37,7 +37,7 @@ document.addEventListener('keydown', function(e) {
    }
 
    if (e.ctrlKey && e.key >= '1' && e.key <= '5') {
-      const index = parseInt(e.key) - 1; // We gebruiken 0-gebaseerde indexen
+      const index = parseInt(e.key) - 1; 
       if (index < thumbLinks.length) {
          currentImage = index;
          showImage(thumbLinks[currentImage]);
