@@ -35,9 +35,8 @@ document.addEventListener('keydown', function(e) {
    } else if (e.key == 'ArrowRight') {
       showNextImage();
    }
-
    if (e.ctrlKey && e.key >= '1' && e.key <= '5') {
-      const index = parseInt(e.key) - 1; 
+      const index = parseInt(e.key) - 1;
       if (index < thumbLinks.length) {
          currentImage = index;
          showImage(thumbLinks[currentImage]);
