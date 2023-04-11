@@ -11,12 +11,19 @@
 
 <body>
     <div id="app">
-        <input type="text" id="search-input" placeholder="Zoek geluidseffecten...">
+        <div class="searchBar">
+            <input type="text" id="search-input" placeholder="Zoek geluidseffecten...">
+            <p>Aantal resultaten:</p>
+        </div>
         <div id="error-message" style="display: none;"></div>
         <div class="soundwrapper" id="demoButton">
             <div class="sound">
                 <div class="sound__background"></div>
             </div>
+        </div>
+        <div class="favorites">
+        </div>
+        <div class="dashboard">
         </div>
     </div>
     <script src="js/scripts.js"></script>

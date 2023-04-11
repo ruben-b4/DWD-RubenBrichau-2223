@@ -4,11 +4,10 @@
 const API_KEY = 'KWHEyRCioJhTUxBjmJ2OYUg4DBMDeJDdqZYJfyQB';
 const NUM_RESULTS = 5;
 const searchInput = document.getElementById('search-input');
-const soundButton = document.querySelector('.sound__background');
 const sound = document.querySelector('.soundwrapper');
+const favorites = document.querySelector('.favorites');
 
 const bgcolor = `rgb(${+Math.random() * 100}, ${+Math.random() * 100}, ${+Math.random() * 100})`; // RVDL Buttons toledo
-soundButton.style.backgroundColor = bgcolor;
 
 let activeButtons = [];
 
@@ -28,6 +27,11 @@ async function search() {
         const response = await fetch(`https://freesound.org/apiv2/search/text/?query=${searchTerm}&token=${API_KEY}&fields=id,name,previews,duration,images`);
         const data = await response.json();
 
+        const resultCount = data.results.length;
+        const resultCountText = `Aantal resultaten: ${resultCount}`;
+        const resultCountParagraph = document.querySelector('.searchBar p');
+        resultCountParagraph.innerHTML = resultCountText;
+
         sound.innerHTML = '';
 
         // maakt button en paragraph
@@ -38,11 +42,16 @@ async function search() {
             par.innerHTML = result.name;
             par.setAttribute('class', 'paragraphs');
             button.setAttribute('class', 'sound__button');
-            button.style.backgroundColor = bgcolor; 
+            button.style.backgroundColor = bgcolor;
+            button.style.opacity = '0.5';
+
+            const heartButton = document.createElement('button');
+            heartButton.classList.add('heart__button');
 
             let isPlaying = false;
             let audio = null;
-            
+            const opacity = 0.5;
+
             // inspiratie genomen https://www.youtube.com/watch?v=xu3y6lKD6kY&t=576s
             button.addEventListener('click', () => {
                 if (activeButtons.length > 0) {
@@ -50,6 +59,8 @@ async function search() {
                     activeButtons.forEach((activeButton) => {
                         activeButton.audio.pause();
                         activeButton.isPlaying = false;
+                        activeButton.button.style.opacity = 0.5;
+                        console.log('test stop ander');
                     });
                     activeButtons = [];
                 }
@@ -62,6 +73,7 @@ async function search() {
                     const index = activeButtons.indexOf(button);
                     if (index > -1) {
                         activeButtons.splice(index, 1); // splice zal wegdoen active
+                        button.style.opacity = opacity;
                     }
                 } else {
                     // start audio
@@ -73,11 +85,13 @@ async function search() {
                     activeButtons.push({
                         button,
                         audio,
-                        isPlaying
+                        isPlaying,
                     });
+                    button.style.opacity = '1';
                 }
             });
             
+            favorites.appendChild(heartButton);
             button.appendChild(par);
             sound.appendChild(button);
         });
