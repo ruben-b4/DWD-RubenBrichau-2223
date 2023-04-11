@@ -102,7 +102,7 @@ async function search() {
                 downloadLink.download = `${result.name}.mp3`;
                 downloadLink.click();
             });
-            
+
             favorites.appendChild(heartButton);
             button.appendChild(downloadButton);
             button.appendChild(par);
@@ -136,7 +136,7 @@ async function search() {
                         name: result.name,
                         previewUrl: result.previews['preview-lq-mp3']
                     };
-                    localStorage.setItem(buttonId, JSON.stringify(buttonData)); // sla de data op met de gegenereerde identifier
+                    localStorage.setItem(buttonId, JSON.stringify(buttonData)); // sla data op
 
 
                     let newIsPlaying = false;

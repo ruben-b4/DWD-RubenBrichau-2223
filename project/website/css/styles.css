@@ -1,17 +1,17 @@
 * {
+    background-color: antiquewhite;
     box-sizing: border-box;
     margin: 0;
     padding: 0;
-    background-color: antiquewhite;
 }
   
 .soundwrapper {
     display: flex;
-    padding: 10px;
-    overflow: hidden;
-    position: relative;
-    justify-content: center;
     height: 250px;
+    justify-content: center;
+    overflow: hidden;
+    padding: 10px;
+    position: relative;
 }
 
 .paragraphs {
@@ -23,13 +23,13 @@
  
 button {
     background: url(../img/button_normal.webp) no-repeat;
+    border-radius: 50%;
     border: 0;
     cursor: pointer;
     height: 94px;
-    width: 94px;
-    position: relative;
-    border-radius: 50%;
     margin-bottom: 100px;
+    position: relative;
+    width: 94px;
 }
   
 button:active {
@@ -39,70 +39,70 @@ button:active {
 .sound__button {
     border-radius: 50%;
     height: 94px;
-    width: 94px;
-    top: 0;
     left: 0;
     margin-left: 10px;
     margin-right: 10px;
+    top: 0;
+    width: 94px;
 }
 
 /* stijlen voor favorites */
 .heart__button {
+    background-size: contain;
     background: revert;
+    background: url(../img/heart-png-15.png) no-repeat center;
+    border: 0;
     border: revert;
+    height: 2rem;
     margin-bottom: 100px;
     margin-left: 10px;
     margin-right: 10px;
-    background: url(../img/heart-png-15.png) no-repeat center;
-    background-size: contain;
-    height: 2rem;
-    border: 0;
 }
 
 .heart__button:active {
-    background: url(../img/heart-png-15.png) no-repeat center;
     background-size: contain;
+    background: url(../img/heart-png-15.png) no-repeat center;
     opacity: 50%;
 }
 
 .favorites {
-    justify-content: center;
     display: flex;
     height: 3rem;
+    justify-content: center;
 }
 
 .removeFavorites {
-    justify-content: center;
     display: flex;
     height: 3rem;
+    justify-content: center;
 }
 
 .removeFavoritesButton {
+    background-size: contain;
     background: revert;
+    background: url(../img/youtube-dislike-png-red-clipart-13.png) no-repeat center;
+    border: 0;
     border: revert;
+    height: 2rem;
     margin-bottom: 100px;
     margin-left: 10px;
     margin-right: 10px;
-    background: url(../img/youtube-dislike-png-red-clipart-13.png) no-repeat center;
-    background-size: contain;
-    height: 2rem;
-    border: 0;
 }
 
 .removeFavoritesButton:active {
-    background: url(../img/youtube-dislike-png-red-clipart-13.png) no-repeat center;
     background-size: contain;
+    background: url(../img/youtube-dislike-png-red-clipart-13.png) no-repeat center;
     opacity: 50%;
 }
 
 .dashboard {
-    justify-content: center;
     display: flex;
+    justify-content: center;
 }
 
 .dashboardfull {
-    justify-content: center;
     display: flex;
+    justify-content: center;
 }
 
 .dashboard__button {
@@ -111,48 +111,48 @@ button:active {
 }
 
 .download__button {
-    background: revert;
-    margin: 100px 0px 0px 0px;
-    height: 2rem;
-    border: 0;
     background-color: pink;
+    background: revert;
+    border: 0;
+    height: 2rem;
+    margin: 100px 0px 0px 0px;
 }
 
 .download__button:active{
     background: revert;
-    margin: 100px 0px 0px 0px;
-    height: 2rem;
     border: 0;
     color: rgb(0, 0, 0);
+    height: 2rem;
+    margin: 100px 0px 0px 0px;
 }
 
 /* stijlen voor zoekbalkje */
   
 #search-input {
+    border-radius: 5px;
+    border: 2px solid black;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
     display: block;
     margin: 1rem auto;
     padding: 10px;
     width: 400px;
-    border-radius: 5px;
-    border: 2px solid black;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .searchBar {
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
 }
 
 .next__page {
+    background-size: contain;
     background: revert;
+    background: url(../img/youtube-dislike-png-red-clipart-13.png) no-repeat center;
+    border: 0;
     border: revert;
+    height: 2rem;
     margin-bottom: 100px;
     margin-left: 10px;
     margin-right: 10px;
-    background: url(../img/youtube-dislike-png-red-clipart-13.png) no-repeat center;
-    background-size: contain;
-    height: 2rem;
-    border: 0;
 }
