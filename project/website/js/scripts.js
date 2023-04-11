@@ -13,7 +13,7 @@ let activeButtons = [];
 let newActiveButtons = [];
 
 searchInput.addEventListener('keydown', (event) => {
-    // reageren bij klik enter
+    // reageren klik enter
     if (event.key == 'Enter') {
         search();
     }
@@ -39,6 +39,7 @@ async function search() {
         data.results.slice(0, NUM_RESULTS).forEach(result => {
             const button = document.createElement('button');
             const par = document.createElement('p');
+            const downloadButton = document.createElement('button');
 
             par.innerHTML = result.name;
             par.setAttribute('class', 'paragraphs');
@@ -48,6 +49,9 @@ async function search() {
 
             const heartButton = document.createElement('button');
             heartButton.classList.add('heart__button');
+
+            downloadButton.classList.add('download__button');
+            downloadButton.innerText = 'Download';
 
             let isPlaying = false;
             let audio = null;
@@ -92,7 +96,15 @@ async function search() {
                 }
             });
 
+            downloadButton.addEventListener('click', () => {
+                const downloadLink = document.createElement('a');
+                downloadLink.href = result.previews['preview-lq-mp3'];
+                downloadLink.download = `${result.name}.mp3`;
+                downloadLink.click();
+            });
+            
             favorites.appendChild(heartButton);
+            button.appendChild(downloadButton);
             button.appendChild(par);
             sound.appendChild(button);
 

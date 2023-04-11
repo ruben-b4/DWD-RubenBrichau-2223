@@ -11,10 +11,11 @@
     overflow: hidden;
     position: relative;
     justify-content: center;
+    height: 250px;
 }
 
 .paragraphs {
-    margin-top: 100px;
+    margin-top: 5px;
     pointer-events: none;
 }
   
@@ -109,6 +110,22 @@ button:active {
     margin-right: 10px;
 }
 
+.download__button {
+    background: revert;
+    margin: 100px 0px 0px 0px;
+    height: 2rem;
+    border: 0;
+    background-color: pink;
+}
+
+.download__button:active{
+    background: revert;
+    margin: 100px 0px 0px 0px;
+    height: 2rem;
+    border: 0;
+    color: rgb(0, 0, 0);
+}
+
 /* stijlen voor zoekbalkje */
   
 #search-input {
@@ -126,4 +143,16 @@ button:active {
     flex-direction: column;
     align-items: center;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+
+.next__page {
+    background: revert;
+    border: revert;
+    margin-bottom: 100px;
+    margin-left: 10px;
+    margin-right: 10px;
+    background: url(../img/youtube-dislike-png-red-clipart-13.png) no-repeat center;
+    background-size: contain;
+    height: 2rem;
+    border: 0;
 }
