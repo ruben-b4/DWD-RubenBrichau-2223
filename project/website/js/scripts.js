@@ -13,7 +13,7 @@ let activeButtons = [];
 let newActiveButtons = [];
 
 searchInput.addEventListener('keydown', (event) => {
-    // reageren wnr enter 
+    // reageren bij klik enter
     if (event.key == 'Enter') {
         search();
     }
@@ -66,7 +66,7 @@ async function search() {
                     activeButtons = [];
                 }
                 if (audio && isPlaying) {
-                    // stop deze audio
+                    // stopt audio
                     audio.pause();
                     isPlaying = false;
 
@@ -113,19 +113,27 @@ async function search() {
 
                 // Voegt nieuwe button toe
                 let newButton;
+                const buttonId = 'favorites-' + Math.random();
                 do {
-                    newButton = button.cloneNode(true); 
-                    
-                    newButton.classList.remove('sound__button'); 
+                    newButton = button.cloneNode(true);
+
+                    newButton.classList.remove('sound__button');
                     newButton.classList.add('dashboard__button');
+
+                    const buttonData = {
+                        name: result.name,
+                        previewUrl: result.previews['preview-lq-mp3']
+                    };
+                    localStorage.setItem(buttonId, JSON.stringify(buttonData)); // sla de data op met de gegenereerde identifier
+
 
                     let newIsPlaying = false;
 
-                    // Voeg hetzelfde click event listener toe als de originele button
+                    // Voegt hetzelfde click event listener toe als de originele button
                     newButton.addEventListener('click', () => {
                         newButton.style.opacity = opacity;
                         if (newActiveButtons.length > 0) {
-                            // stop alle actieve audio
+                            // stopt alle actieve audio
                             newActiveButtons.forEach((newActiveButton) => {
                                 newActiveButton.audio.pause();
                                 newActiveButton.newIsPlaying = false;
@@ -134,7 +142,7 @@ async function search() {
                             newActiveButtons = [];
                         }
                         if (audio && newIsPlaying) {
-                            // stop deze audio
+                            // stopt deze audio
                             audio.pause();
                             newIsPlaying = false;
 
@@ -164,9 +172,10 @@ async function search() {
                 removeButton.addEventListener('click', () => {
                     newButton.remove();
                     removeButton.remove();
+                    localStorage.removeItem(buttonId);
                 });
 
-                // Voegt nieuwe button toe aan het dashboard 
+                // Voegt nieuwe button toe aan dashboard 
                 dashboard.append(newButton);
                 removeFavorites.append(removeButton);
             });
