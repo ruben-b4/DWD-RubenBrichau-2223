@@ -10,6 +10,7 @@ const favorites = document.querySelector('.favorites');
 const bgcolor = `rgb(${+Math.random() * 100}, ${+Math.random() * 100}, ${+Math.random() * 100})`; // RVDL Buttons toledo
 
 let activeButtons = [];
+let newActiveButtons = [];
 
 searchInput.addEventListener('keydown', (event) => {
     // reageren wnr enter 
@@ -59,7 +60,7 @@ async function search() {
                     activeButtons.forEach((activeButton) => {
                         activeButton.audio.pause();
                         activeButton.isPlaying = false;
-                        activeButton.button.style.opacity = 0.5;
+                        activeButton.button.style.opacity = opacity;
                         console.log('test stop ander');
                     });
                     activeButtons = [];
@@ -90,10 +91,85 @@ async function search() {
                     button.style.opacity = '1';
                 }
             });
-            
+
             favorites.appendChild(heartButton);
             button.appendChild(par);
             sound.appendChild(button);
+
+            // inspiratie https://gomakethings.com/how-to-copy-or-clone-an-element-with-vanilla-js/#:~:text=You%20call%20the%20cloneNode(),of%20it%20var%20clone%20%3D%20elem.
+            heartButton.addEventListener('click', () => {
+                const removeButton = document.createElement('button');
+                const removeFavorites = document.querySelector('.removeFavorites');
+                const dashboard = document.querySelector('.dashboard');
+                const DashboardButton = dashboard.querySelectorAll('.dashboard__button');
+                const currentButtonCount = DashboardButton.length;
+
+                removeButton.classList.add('removeFavoritesButton');
+
+                // Stopt als er 5 buttons in dashboard zitten
+                if (currentButtonCount >= 5) {
+                    return;
+                }
+
+                // Voegt nieuwe button toe
+                let newButton;
+                do {
+                    newButton = button.cloneNode(true); 
+                    
+                    newButton.classList.remove('sound__button'); 
+                    newButton.classList.add('dashboard__button');
+
+                    let newIsPlaying = false;
+
+                    // Voeg hetzelfde click event listener toe als de originele button
+                    newButton.addEventListener('click', () => {
+                        newButton.style.opacity = opacity;
+                        if (newActiveButtons.length > 0) {
+                            // stop alle actieve audio
+                            newActiveButtons.forEach((newActiveButton) => {
+                                newActiveButton.audio.pause();
+                                newActiveButton.newIsPlaying = false;
+                                console.log('test stop ander');
+                            });
+                            newActiveButtons = [];
+                        }
+                        if (audio && newIsPlaying) {
+                            // stop deze audio
+                            audio.pause();
+                            newIsPlaying = false;
+
+                            // verwijderd deze knop uit newActiveButtons, inspiratie: https://stackoverflow.com/questions/5767325/how-can-i-remove-a-specific-item-from-an-array-in-javascript 
+                            const index = newActiveButtons.indexOf(button);
+                            if (index > -1) {
+                                newActiveButtons.splice(index, 1); // splice zal wegdoen active
+                                newButton.style.opacity = opacity;
+                            }
+                        } else {
+                            // start audio
+                            newIsPlaying = true;
+                            audio = new Audio(result.previews['preview-lq-mp3']);
+                            audio.play();
+
+                            // voegt button toe aan newActiveButtons
+                            newActiveButtons.push({
+                                button,
+                                audio,
+                                newIsPlaying,
+                            });
+                            newButton.style.opacity = '1';
+                        }
+                    });
+                } while (dashboard.querySelector(`.dashboard__button[data-text="${newButton.dataset.text}"]`)); // bron chatgpt
+
+                removeButton.addEventListener('click', () => {
+                    newButton.remove();
+                    removeButton.remove();
+                });
+
+                // Voegt nieuwe button toe aan het dashboard 
+                dashboard.append(newButton);
+                removeFavorites.append(removeButton);
+            });
         });
     } catch (error) {
         console.error(error);
