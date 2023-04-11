@@ -27,7 +27,7 @@ button {
     border: 0;
     cursor: pointer;
     height: 94px;
-    margin-bottom: 100px;
+    margin-bottom: 150px;
     position: relative;
     width: 94px;
 }
@@ -48,11 +48,11 @@ button:active {
 
 /* stijlen voor favorites */
 .heart__button {
+    background-image: url(../img/heart-png-15.png);
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: contain;
-    background: revert;
-    background: url(../img/heart-png-15.png) no-repeat center;
-    border: 0;
-    border: revert;
+    border: none;
     height: 2rem;
     margin-bottom: 100px;
     margin-left: 10px;
@@ -61,7 +61,9 @@ button:active {
 
 .heart__button:active {
     background-size: contain;
-    background: url(../img/heart-png-15.png) no-repeat center;
+    background-image: url(../img/heart-png-15.png);
+    background-repeat: no-repeat;
+    background-position: center;
     opacity: 50%;
 }
 
@@ -78,11 +80,11 @@ button:active {
 }
 
 .removeFavoritesButton {
+    background-image: url(../img/youtube-dislike-png-red-clipart-13.png);
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: contain;
-    background: revert;
-    background: url(../img/youtube-dislike-png-red-clipart-13.png) no-repeat center;
-    border: 0;
-    border: revert;
+    border: none;
     height: 2rem;
     margin-bottom: 100px;
     margin-left: 10px;
@@ -90,8 +92,10 @@ button:active {
 }
 
 .removeFavoritesButton:active {
+    background-image: url(../img/youtube-dislike-png-red-clipart-13.png);
+    background-position: center;
+    background-repeat: no-repeat;
     background-size: contain;
-    background: url(../img/youtube-dislike-png-red-clipart-13.png) no-repeat center;
     opacity: 50%;
 }
 
@@ -112,14 +116,15 @@ button:active {
 
 .download__button {
     background-color: pink;
-    background: revert;
+    background-image: none;
     border: 0;
     height: 2rem;
     margin: 100px 0px 0px 0px;
 }
 
 .download__button:active{
-    background: revert;
+    background-color: rgb(219, 87, 109);
+    background-image: none;
     border: 0;
     color: rgb(0, 0, 0);
     height: 2rem;
@@ -143,16 +148,4 @@ button:active {
     display: flex;
     flex-direction: column;
     font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
-}
-
-.next__page {
-    background-size: contain;
-    background: revert;
-    background: url(../img/youtube-dislike-png-red-clipart-13.png) no-repeat center;
-    border: 0;
-    border: revert;
-    height: 2rem;
-    margin-bottom: 100px;
-    margin-left: 10px;
-    margin-right: 10px;
 }
